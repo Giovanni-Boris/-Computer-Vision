@@ -22,6 +22,9 @@ while True:
     secondRed2=cv2.inRange(frameHSV,redBajo02,redAlto02)
     #Adicionar las dos para convertirla en una solo y me detecte el rojo
     unity=cv2.add(firstRed1,secondRed2)
+    #En vez de blanco mostrar el color real 
+    unityOriginal=cv2.bitwise_and(frame,frame,mask=unity)
+    cv2.imshow("unityOriginal",unityOriginal)
     #Visualiazacion detección de los colores
     cv2.imshow("Mascara",unity)
     #Mostramos el frame capturado
