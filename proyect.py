@@ -7,12 +7,16 @@ while True:
   #Capturamos video frame a frame
   ret, frame = vc.read()
   if ret==False:
-    break
+    break 
+  #Convertimos a escala de grises
+  gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+  #Mostramos el frame capturado
+  cv2.imshow('Video', gray)
 
-  cv2.imshow('Video', frame)
+  #Si pulsamos q finalizamos'
   if  cv2.waitKey(1) & 0xFF==ord("q"):
     break;
-#Finalizamos camarai,grabacion y cerramos ventana
+#Finalizamos camara  y cerramos ventana
 vc.release()
 cv2.destroyAllWindows()
 
