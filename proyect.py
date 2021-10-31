@@ -1,3 +1,4 @@
+#Importación de recursos
 import cv2
 
 #Iniciamos camara
