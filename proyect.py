@@ -22,8 +22,8 @@ while True:
     secondRed2=cv2.inRange(frameHSV,redBajo02,redAlto02)
     #Adicionar las dos para convertirla en una solo y me detecte el rojo
     unity=cv2.add(firstRed1,secondRed2)
-    
-
+    #Visualiazacion detección de los colores
+    cv2.imshow("Red",unity)
     #Mostramos el frame capturado
     cv2.imshow('Video', frame)
 
