@@ -2,6 +2,7 @@
 import cv2
 import numpy as np
 
+
 #Iniciamos camara
 vc = cv2.VideoCapture(0)
 #Primer Rango
