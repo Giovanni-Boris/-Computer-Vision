@@ -20,7 +20,13 @@ while True:
     #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     frameHSV=cv2.cvtColor(frame,cv2.COLOR_BGR2HSV)
     mask = cv2.inRange(frameHSV,azulBajo02,azulAlto02)
-    #En la imagen frameHSV vamos a encontrar los rango bajo01 y alto 1 los mismo para 2
+    #Deteccion de contornos
+    contornos,_ = cv2.findContours(mask,cv2.RETR_EXTERNAL,
+        cv2.CHAIN_APPROX_SIMPLE)
+    #Dibujar las contornos
+    #cv2.drawContours (frame, contornos, -1, (255,0,0), 3)
+    #Eliminado algunos contornos no deseados
+       #En la imagen frameHSV vamos a encontrar los rango bajo01 y alto 1 los mismo para 2
     #firstRed1=cv2.inRange(frameHSV,redBajo01,redAlto01)
     #secondRed2=cv2.inRange(frameHSV,redBajo02,redAlto02)
     #Adicionar las dos para convertirla en una solo y me detecte el rojo
@@ -29,7 +35,7 @@ while True:
     #unityOriginal=cv2.bitwise_and(frame,frame,mask=unity)
     #cv2.imshow("unityOriginal",unityOriginal)
     #Visualiazacion detección de los colores
-    cv2.imshow("Mascara",mask)
+    #cv2.imshow("Mascara",mask)
     #Mostramos el frame capturado
     cv2.imshow('Video', frame)
 
