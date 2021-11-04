@@ -26,7 +26,11 @@ while True:
     #Dibujar las contornos
     #cv2.drawContours (frame, contornos, -1, (255,0,0), 3)
     #Eliminado algunos contornos no deseados
-       #En la imagen frameHSV vamos a encontrar los rango bajo01 y alto 1 los mismo para 2
+    for i in contornos:
+      area=cv2.contourArea(i)
+      if area>3000:
+        cv2.drawContours(frame,[i],0,(125,0,0),3)
+    #En la imagen frameHSV vamos a encontrar los rango bajo01 y alto 1 los mismo para 2
     #firstRed1=cv2.inRange(frameHSV,redBajo01,redAlto01)
     #secondRed2=cv2.inRange(frameHSV,redBajo02,redAlto02)
     #Adicionar las dos para convertirla en una solo y me detecte el rojo
