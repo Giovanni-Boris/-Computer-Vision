@@ -45,6 +45,9 @@ while True:
     cv2.rectangle(frame,(0,60),(50,100),rosa,grosorRosa)
     cv2.rectangle(frame,(0,110),(50,150),celeste,grosorCeleste)
     cv2.rectangle(frame,(0,160),(50,200),amarillo,grosorAmarillo)
+    #Borrador
+    cv2.rectangle(frame,(300,0),(400,40),borrador,1)
+    cv2.putText(frame,"Borrador",(320,20),6,0.6,borrador,1,cv2.LINE_AA)
     mask = cv2.inRange(frameHSV,azulBajo02,azulAlto02)
     #Deteccion de contornos
     contornos,_ = cv2.findContours(mask,cv2.RETR_EXTERNAL,
