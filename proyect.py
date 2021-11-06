@@ -34,8 +34,17 @@ while True:
   #Capturamos video frame a frame
   ret, frame = vc.read()
   if ret==True:
+    #Efecto espejo
     frame = cv2.flip(frame,1)
     frameHSV=cv2.cvtColor(frame,cv2.COLOR_BGR2HSV)
+    #Creacion de matriz de ceros igual que el frame
+    if aux is None:
+      aux=np.zeros(frame.shape,dtype=np.uint8)
+    #Creando rectangulos de colores
+    cv2.rectangle(frame,(0,0),(50,50),verde,grosorVerde)
+    cv2.rectangle(frame,(0,60),(50,100),rosa,grosorRosa)
+    cv2.rectangle(frame,(0,110),(50,150),celeste,grosorCeleste)
+    cv2.rectangle(frame,(0,160),(50,200),amarillo,grosorAmarillo)
     mask = cv2.inRange(frameHSV,azulBajo02,azulAlto02)
     #Deteccion de contornos
     contornos,_ = cv2.findContours(mask,cv2.RETR_EXTERNAL,
@@ -69,6 +78,7 @@ while True:
     #cv2.imshow("Mascara",mask)
     #Mostramos el frame capturado
     cv2.imshow('Video', frame)
+    cv2.imshow('aux', aux)
 
     #Si pulsamos q finalizamos'
     if  cv2.waitKey(1) & 0xFF==ord("q"):
