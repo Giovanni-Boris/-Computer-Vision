@@ -25,13 +25,16 @@ big = 1
 #Valores por defecto cuando se prende la camara
 color = verde  #Color de entrada
 grosor = 4 #Grosor del marcador
-
+#Coordenadas
+x = None
+y = None
+#Espacio para dibujar
+aux = None
 while True:
   #Capturamos video frame a frame
   ret, frame = vc.read()
   if ret==True:
-    #Convertimos a escala de grises
-    #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    frame = cv2.flip(frame,1)
     frameHSV=cv2.cvtColor(frame,cv2.COLOR_BGR2HSV)
     mask = cv2.inRange(frameHSV,azulBajo02,azulAlto02)
     #Deteccion de contornos
