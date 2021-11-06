@@ -12,6 +12,12 @@ vc = cv2.VideoCapture(0)
 #redAlto02 = np.array([179,255,255],np.uint8)   
 azulBajo02 = np.array([100,100,20],np.uint8)   
 azulAlto02 = np.array([125,255,255],np.uint8) 
+#Colores para pintar
+celeste = (255,113,82)
+qmarillo  = (89,222,255)
+rosa = (128,0,255)
+verde = (0,255,36)
+borrador = (29,112,246)
 while True:
   #Capturamos video frame a frame
   ret, frame = vc.read()
