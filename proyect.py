@@ -4,20 +4,21 @@ import numpy as np
 
 #Iniciamos camara
 vc = cv2.VideoCapture(0)
-#Primer Rango
-#redBajo01 = np.array([0,100,20],np.uint8)   
-#redAlto01 = np.array([8,255,255],np.uint8)   
-#Segundo Rango
-#redBajo02 = np.array([175,100,20],np.uint8)   
-#redAlto02 = np.array([179,255,255],np.uint8)   
+#Marcador 
 azulBajo02 = np.array([100,100,20],np.uint8)   
 azulAlto02 = np.array([125,255,255],np.uint8) 
 #Colores para pintar
-celeste = (255,113,82)
-qmarillo  = (89,222,255)
-rosa = (128,0,255)
 verde = (0,255,36)
+rosa = (128,0,255)
+celeste = (255,113,82)
+amarillo  = (89,222,255)
 borrador = (29,112,246)
+#Grosor de las  lineas de recuadros de color
+grosorVerde =5
+grosorAmarillo=2
+grosorCeleste=2
+grosorRosa=2
+
 while True:
   #Capturamos video frame a frame
   ret, frame = vc.read()
