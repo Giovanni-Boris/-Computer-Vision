@@ -18,6 +18,13 @@ grosorVerde =5
 grosorAmarillo=2
 grosorCeleste=2
 grosorRosa=2
+#Grosor de recuadros para el grosor del marcador
+litle = 7
+midle = 1
+big = 1
+#Valores por defecto cuando se prende la camara
+color = verde  #Color de entrada
+grosor = 4 #Grosor del marcador
 
 while True:
   #Capturamos video frame a frame
