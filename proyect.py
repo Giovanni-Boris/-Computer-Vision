@@ -48,6 +48,16 @@ while True:
     #Borrador
     cv2.rectangle(frame,(300,0),(400,40),borrador,1)
     cv2.putText(frame,"Borrador",(320,20),6,0.6,borrador,1,cv2.LINE_AA)
+    #Grosores
+    cv2.rectangle(frame,(1220,0),(1270,50),(0,0,0),litle)
+    cv2.circle(frame,(1245,25),3,(0,0,0),-1)
+    cv2.rectangle(frame,(1220,60),(1270,100),(0,0,0),midle)
+    cv2.circle(frame,(1245,80),7,(0,0,0),-1)
+    cv2.rectangle(frame,(1220,110),(1270,150),(0,0,0),big)
+    cv2.circle(frame,(1245,130),11,(0,0,0),-1)
+
+
+
     mask = cv2.inRange(frameHSV,azulBajo02,azulAlto02)
     #Deteccion de contornos
     contornos,_ = cv2.findContours(mask,cv2.RETR_EXTERNAL,
