@@ -26,8 +26,8 @@ big = 1
 color = verde  #Color de entrada
 grosor = 4 #Grosor del marcador
 #Coordenadas
-x = None
-y = None
+x1 = None
+y1 = None
 #Espacio para dibujar
 aux = None
 while True:
@@ -72,7 +72,10 @@ while True:
     #Eliminado algunos contornos no deseados
     for i in contornos:
       area=cv2.contourArea(i)
-      if area>3000:
+      if area>1000:
+        #Hace un rectangulo que rodea el area de la tapa
+        x,y2,w,h = cv2.boundingRect(i)
+        cv2.rectangle(frame,(x,y2),(x+w,y2+h),(0,255,0),2)
         M=cv2.moments(i)
         if(M["m00"]==0): M["m00"]=1
         x=int(M["m10"]/M["m00"])
@@ -82,8 +85,10 @@ while True:
         cv2.putText(frame,'{},{}'.format(x,y),(x+10,y),font,0.75,
             (0,225,0),1,cv2.LINE_AA)
         nuevoContorno=cv2.convexHull(i)
-
         cv2.drawContours(frame,[nuevoContorno],0,(125,0,0),3)
+      else:
+        x1=None
+        y1=None
     cv2.imshow('Video', frame)
     #cv2.imshow('aux', aux)
     cv2.imshow("azul",mask)
