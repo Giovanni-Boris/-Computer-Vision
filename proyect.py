@@ -130,6 +130,7 @@ while True:
           if 300 < x2 < 400 and 0 <y2 < 50:
             cv2.rectangle(frame,(300,0),(400,50),borrador,2)
             cv2.putText(frame,"Borrador",(320,20),6,0.6,borrador,2,cv2.LINE_AA)
+            aux=np.zeros(frame.shape,dtype=np.uint8)
           #Para que no pinte en las zonas de color
           if 0 <y2 < 60  or 0 < y1 < 60:
             aux = aux
