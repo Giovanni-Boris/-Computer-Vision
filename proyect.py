@@ -46,7 +46,7 @@ while True:
     cv2.rectangle(frame,(0,110),(50,150),celeste,grosorCeleste)
     cv2.rectangle(frame,(0,160),(50,200),amarillo,grosorAmarillo)
     #Borrador
-    cv2.rectangle(frame,(300,0),(400,40),borrador,1)
+    cv2.rectangle(frame,(300,0),(400,50),borrador,1)
     cv2.putText(frame,"Borrador",(320,20),6,0.6,borrador,1,cv2.LINE_AA)
     #Grosores
     cv2.rectangle(frame,(1220,0),(1270,50),(0,0,0),litle)
@@ -126,6 +126,13 @@ while True:
             litle =  1
             midle = 1
             big= 6
+        #borrador
+        if 300 < x2 < 400 and 0 <y2 < 50:
+          cv2.rectangle(frame,(300,0),(400,50),borrador,2)
+          cv2.putText(frame,"Borrador",(320,20),6,0.6,borrador,2,cv2.LINE_AA)
+     
+
+
 
         M=cv2.moments(i)
         if(M["m00"]==0): M["m00"]=1
