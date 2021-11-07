@@ -156,8 +156,21 @@ while True:
       else:
         x1=None
         y1=None
+    #Escala de grises
+    auxGray = cv2.cvtColor(aux,cv2.COLOR_BGR2GRAY)
+    # Umbralizacion simple
+    _ , th = cv2.threshold(auxGray,10,255,cv2.THRESH_BINARY)
+    #Invertir el area que este blanco en negro
+    invert = cv2.bitwise_not(th)
+    frame = cv2.bitwise_and(frame,frame,mask=invert)
+    frame=cv2.add(frame,aux)
+
     cv2.imshow('Video', frame)
     cv2.imshow('aux', aux)
+    #cv2.imshow('th', th)
+    #cv2.imshow('invert', invert)
+
+
     #cv2.imshow("azul",mask)
 
     #Si pulsamos q finalizamos'
