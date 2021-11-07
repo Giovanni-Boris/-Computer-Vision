@@ -76,6 +76,35 @@ while True:
         #Hace un rectangulo que rodea el area de la tapa
         x,y2,w,h = cv2.boundingRect(i)
         cv2.rectangle(frame,(x,y2),(x+w,y2+h),(0,255,0),2)
+        #Realizar trazos para la parte superior
+        x2= x + w//2 
+
+        if x1 is not None:
+          if 0 <x2 <50 and 0<y2<50:
+            color = verde
+            grosorVerde =  6
+            grosorRosa = 2
+            grosorAmarillo = 2
+            grosorCeleste=2
+          if 0 <x2 <50 and 60<y2<100:
+            color = Rosa
+            grosorVerde =  2
+            grosorRosa = 6
+            grosorAmarillo = 2
+            grosorCeleste=2
+          if 0 <x2 <50 and 110<y2<150:
+            color = celeste 
+            grosorVerde =  2
+            grosorRosa = 2
+            grosorAmarillo = 2
+            grosorCeleste=6
+          if 0 <x2 <50 and 160<y2<200:
+            color = amarillo
+            grosorVerde =  2
+            grosorRosa = 2
+            grosorAmarillo = 6
+            grosorCeleste=2
+
         M=cv2.moments(i)
         if(M["m00"]==0): M["m00"]=1
         x=int(M["m10"]/M["m00"])
