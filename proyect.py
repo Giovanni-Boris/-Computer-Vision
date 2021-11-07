@@ -87,7 +87,7 @@ while True:
             grosorAmarillo = 2
             grosorCeleste=2
           if 0 <x2 <50 and 60<y2<100:
-            color = Rosa
+            color = rosa
             grosorVerde =  2
             grosorRosa = 6
             grosorAmarillo = 2
@@ -111,45 +111,53 @@ while True:
             grosorAmarillo = 6
             grosorCeleste=2
             #Grosor de linea
-        if 1220 <x2 <1270 and 0<y2<50:
+          if 1220 <x2 <1270 and 0<y2<50:
             grosor = 3
             litle =  6
             midle = 1
             big= 1
-        if 1220 <x2 <1270 and 60<y2<100:
+          if 1220 <x2 <1270 and 60<y2<100:
             grosor = 7
             litle =  1
             midle = 6
             big= 1
-        if 1220 <x2 <1270 and 110<y2<150:
+          if 1220 <x2 <1270 and 110<y2<150:
             grosor = 11
             litle =  1
             midle = 1
             big= 6
         #borrador
-        if 300 < x2 < 400 and 0 <y2 < 50:
-          cv2.rectangle(frame,(300,0),(400,50),borrador,2)
-          cv2.putText(frame,"Borrador",(320,20),6,0.6,borrador,2,cv2.LINE_AA)
+          if 300 < x2 < 400 and 0 <y2 < 50:
+            cv2.rectangle(frame,(300,0),(400,50),borrador,2)
+            cv2.putText(frame,"Borrador",(320,20),6,0.6,borrador,2,cv2.LINE_AA)
+          #Para que no pinte en las zonas de color
+          if 0 <y2 < 60  or 0 < y1 < 60:
+            aux = aux
+          else:
+            aux = cv2.line(aux,(x1,y1),(x2,y2),color,grosor)
+        cv2.circle(frame,(x2,y2),grosor,color,3)
+        x1=x2
+        y1=y2
      
 
 
 
-        M=cv2.moments(i)
-        if(M["m00"]==0): M["m00"]=1
-        x=int(M["m10"]/M["m00"])
-        y=int(M["m01"]/M["m00"])
-        cv2.circle(frame,(x,y),7,(0,255,0),-1)
-        font=cv2.FONT_HERSHEY_SIMPLEX
-        cv2.putText(frame,'{},{}'.format(x,y),(x+10,y),font,0.75,
-            (0,225,0),1,cv2.LINE_AA)
-        nuevoContorno=cv2.convexHull(i)
-        cv2.drawContours(frame,[nuevoContorno],0,(125,0,0),3)
+        #M=cv2.moments(i)
+        #if(M["m00"]==0): M["m00"]=1
+        #x=int(M["m10"]/M["m00"])
+        #y=int(M["m01"]/M["m00"])
+        #cv2.circle(frame,(x,y),7,(0,255,0),-1)
+        #font=cv2.FONT_HERSHEY_SIMPLEX
+        #cv2.putText(frame,'{},{}'.format(x,y),(x+10,y),font,0.75,
+         #   (0,225,0),1,cv2.LINE_AA)
+        #nuevoContorno=cv2.convexHull(i)
+        #cv2.drawContours(frame,[nuevoContorno],0,(125,0,0),3)
       else:
         x1=None
         y1=None
     cv2.imshow('Video', frame)
-    #cv2.imshow('aux', aux)
-    cv2.imshow("azul",mask)
+    cv2.imshow('aux', aux)
+    #cv2.imshow("azul",mask)
 
     #Si pulsamos q finalizamos'
     if  cv2.waitKey(1) & 0xFF==ord("q"):
