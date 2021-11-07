@@ -104,6 +104,28 @@ while True:
             grosorRosa = 2
             grosorAmarillo = 6
             grosorCeleste=2
+          if 0 <x2 <50 and 160<y2<200:
+            color = amarillo
+            grosorVerde =  2
+            grosorRosa = 2
+            grosorAmarillo = 6
+            grosorCeleste=2
+            #Grosor de linea
+        if 1220 <x2 <1270 and 0<y2<50:
+            grosor = 3
+            litle =  6
+            midle = 1
+            big= 1
+        if 1220 <x2 <1270 and 60<y2<100:
+            grosor = 7
+            litle =  1
+            midle = 6
+            big= 1
+        if 1220 <x2 <1270 and 110<y2<150:
+            grosor = 11
+            litle =  1
+            midle = 1
+            big= 6
 
         M=cv2.moments(i)
         if(M["m00"]==0): M["m00"]=1
