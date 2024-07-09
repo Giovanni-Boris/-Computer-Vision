@@ -63,8 +63,8 @@ while True:
     #Suavizando colores
     mask = cv2.medianBlur(mask,13)
     #Deteccion de contornos
-    contornos,_ = cv2.findContours(mask,cv2.RETR_EXTERNAL,
-        cv2.CHAIN_APPROX_SIMPLE)
+    contornos, hierarchy = cv2.findContours( mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)[-2:]
+
     #Contorno mas grande segun su area
     contornos = sorted(contornos,key=cv2.contourArea,reverse=True)[:1]
     #Dibujar las contornos
